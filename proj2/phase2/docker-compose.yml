@@ -4,16 +4,16 @@ services:
     image: dockersamples/examplevotingapp_vote:before
     ports:
       - 5000:80
-    networks: 
+    networks:
       - frontend
   redis:
     image: redis:3.2
-    networks: 
+    networks:
       - frontend
   worker:
     image: redis:3.2
-    networks: 
-      - frontend 
+    networks:
+      - frontend
       - backend
   db:
     image: postgres:9.4
@@ -23,7 +23,7 @@ services:
       # POSTGRES_DB: voting_db
       # POSTGRES_PASSWORD: password
 
-    networks: 
+    networks:
       - backend
     volumes:
       - /var/lib/postgresql/data
@@ -31,13 +31,11 @@ services:
     image: dockersamples/examplevotingapp_result:before
     ports:
       - 5001:80
-    networks: 
+    networks:
       - backend
 
-# volumes: 
+# volumes:
 
 networks:
   frontend:
-    driver: bridge
   backend:
-    driver: bridge
