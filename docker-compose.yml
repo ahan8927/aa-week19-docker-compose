@@ -3,7 +3,7 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: my-image.Dockerfile
+      dockerfile: Dockerfile
     image: webapp:tag
     ports: 
       - 80:80
